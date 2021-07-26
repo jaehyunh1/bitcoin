@@ -389,6 +389,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += "  -rpcsslprivatekeyfile=<file.pem>         " + strprintf(_("Server private key (default: %s)"), "server.pem") + "\n";
     strUsage += "  -rpcsslciphers=<ciphers>                 " + strprintf(_("Acceptable ciphers (default: %s)"), "TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH") + "\n";
 
+    strUsage += "-erebustest" + strprintf("Run as a victim node of erebus experiment (default: %u)", false) + "\n";
     return strUsage;
 }
 

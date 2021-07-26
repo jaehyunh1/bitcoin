@@ -424,7 +424,7 @@ if test x$use_hardening != xno; then
 
   if test x$TARGET_OS != xwindows; then
     # All windows code is PIC, forcing it on just adds useless compile warnings
-    AX_CHECK_COMPILE_FLAG([-fPIE],[HARDENED_CXXFLAGS="$HARDENED_CXXFLAGS -fPIE"])
+    AX_CHECK_COMPILE_FLAG([-fPIC],[HARDENED_CXXFLAGS="$HARDENED_CXXFLAGS -fPIC"])
     AX_CHECK_LINK_FLAG([[-pie]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -pie"])
   fi
 
@@ -486,7 +486,7 @@ AC_LINK_IFELSE([AC_LANG_SOURCE([
 )
 
 if test x$use_reduce_exports != xno; then
-  AX_CHECK_COMPILE_FLAG([-fvisibility=hidden],[RE_CXXFLAGS="-fvisibility=hidden"],
+  AX_CHECK_COMPILE_FLAG([-fvisibility=hidden],[],
   [
     if test x$use_reduce_exports = xyes; then
       AC_MSG_ERROR([Cannot set default symbol visibility. Use --disable-reduced-exports.])
